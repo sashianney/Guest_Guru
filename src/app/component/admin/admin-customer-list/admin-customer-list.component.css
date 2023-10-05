@@ -1,0 +1,13 @@
+.customer-card {
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.customer-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 5px 10px 18px #888888;
+  cursor: pointer;
+}
+.card {
+  border: none;
+  border-radius: 8px;
+}

@@ -1,0 +1,53 @@
+<div class="container-fluid py-5">
+    <div class="container px-4 bg-light w-50 border rounded py-5" id="box" >
+        <div style="text-align: center;">
+          <h1>Update Room Information</h1>
+        </div>
+            <form #addRoom="ngForm" (ngSubmit)="onSubmit(addRoom)">
+                <div class="mb-3">
+                    <label for="roomnumber" class="form-label">Room Number:</label>
+                    <input type="number" id="roomnumber" class="form-control" name="roomnumber"
+                        [(ngModel)]="roomInformation.roomnumber" min="1" required>
+                    <div *ngIf="addRoom.controls['roomnumber'].invalid && (addRoom.controls['roomnumber'].dirty || addRoom.controls['roomnumber'].touched)"
+                        class="error-message">
+                        *Room number must be a positive number.
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <label for="price" class="form-label">Price per day:</label>
+                    <input type="number" id="price" class="form-control" name="price"
+                        [(ngModel)]="roomInformation.roompriceperday" min="1" required>
+                    <div *ngIf="addRoom.controls['price'].invalid && (addRoom.controls['price'].dirty || addRoom.controls['price'].touched)"
+                        class="error-message">
+                        *Price per day must be a positive number.
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <label for="description" class="form-label">Description:</label>
+                    <input type="text" id="description" class="form-control" name="description"
+                        [(ngModel)]="roomInformation.roomdescription" required maxlength="250">
+                    <div *ngIf="addRoom.controls['description'].invalid && (addRoom.controls['description'].dirty || addRoom.controls['description'].touched)"
+                        class="error-message">
+                        *Description is required and should not exceed 250 characters.
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <label for="url" class="form-label">Image url:</label>
+                    <input type="text" id="url" class="form-control" name="url" [(ngModel)]="roomInformation.roomimageurl" required>
+                    <!-- You can add custom validation for unique image URLs here -->
+                </div>
+                <div class="mb-3">
+                    <label for="people" class="form-label">Number of People:</label>
+                    <input type="text" id="people" class="form-control" name="people"
+                        [(ngModel)]="roomInformation.numberofpeople" required maxlength="50">
+                    <div *ngIf="addRoom.controls['people'].invalid && (addRoom.controls['people'].dirty || addRoom.controls['people'].touched)"
+                        class="error-message">
+                        *Number of People is required and should not exceed 50 characters.
+                    </div>
+                </div>
+                <br>
+               
+                <button type="submit" class="btn btn-primary responsive-button">Save</button>
+            </form>
+    </div>
+</div>

@@ -1,0 +1,67 @@
+<div class="container mt-4">
+    <h2>Add customer</h2>
+  
+    <!-- User Add Form using Template-Driven Form -->
+    <form #customerCardForm="ngForm" (ngSubmit)="onSubmit(customerCardForm)">
+
+        <div class="mb-3">
+            <label for="customercardnumber" class="form-label">Card Number</label>
+            <input type="string" id="customercardnumber" class="form-control" name="customercardnumber" maxlength="16"   required>
+            <!--For validation We use-->
+            <div *ngIf="customerCardForm.controls['customercardnumber'].errors?.['maxLength'] && customerCardForm.controls['customercardnumber'].touched" class="error-message-minlength">
+                *contact number must be 16 digits
+            </div>
+            <div *ngIf="customerCardForm.controls['customercardnumber'].errors?.['required'] && customerCardForm.controls['customercardnumber'].touched" class="error-message-required">
+                *please enter cardnumber
+            </div>
+           
+          </div>
+
+          <div class="mb-3">
+            <label for="customervalidthru" class="form-label">Card valid thru</label>
+            <input type="password" id="customervalidthru" class="form-control" name="customervalidthru" maxlength="3" pattern="^(0[1-9]|1[0-2])\\/[0-9]{2}$" required>
+            <!--For validation We use-->
+            <div *ngIf="customerCardForm.controls['customervalidthru'].errors?.['maxlength']&& customerCardForm.controls['customervalidthru'].touched" class="error-message-minlength">
+                *please enter valid cvv 
+            </div>
+            <div *ngIf="customerCardForm.controls['customervalidthru'].errors?.['required'] && customerCardForm.controls['customervalidthru'].touched" class="error-message-required">
+                *please enter cvv
+            </div>
+            <div *ngIf="customerCardForm.controls['customervalidthru'].errors?.['pattern'] && customerCardForm.controls['customervalidthru'].touched" class="error-message-pattern">
+                *Valid Thru date must be in MM/YY pattern e.g.:- 05/27
+            </div>
+        </div>
+  
+      <div class="mb-3">
+            <label for="customercardcvv" class="form-label">Cvv</label>
+            <input type="password" id="customercvv" class="form-control" name="customercardcvv" maxlength="3"  required>
+            <!--For validation We use-->
+            <div *ngIf="customerCardForm.controls['customercardcvv'].errors?.['maxlength']&& customerCardForm.controls['customercardcvv'].touched" class="error-message-minlength">
+                *please enter valid cvv 
+            </div>
+            <div *ngIf="customerCardForm.controls['customercardcvv'].errors?.['required'] && customerCardForm.controls['customercardcvv'].touched" class="error-message-required">
+                *please enter cvv
+            </div>
+        </div>
+
+        <div class="mb-3">
+            <label for="customeraccountbalance" class="form-label">Customer Account Balance</label>
+            <input type="text" id="customeraccountbalance" class="form-control" name="customeraccountbalance"   required>
+            <!--For validation We use-->
+       
+            <div *ngIf="customerCardForm.controls['customeraccountbalance'].errors?.['required'] && customerCardForm.controls['customeraccountbalance'].touched" class="error-message-required">
+                *please enter balance
+            </div>
+            
+            <div class="mb-3">
+                <label for="customerid" class="form-label">Customer Id</label>
+                <input type="text" id="customerid" class="form-control" name="customerid"  required>
+                <!--For validation We use-->
+                <div *ngIf="customerCardForm.controls['customerid'].errors?.['required'] && customerCardForm.controls['customerid'].touched" class="error-message-required">
+                    *please enter full id
+                </div>
+
+          </div>
+      <button type="submit" class="btn btn-primary">Add Your Card + </button>
+    
+  </div>

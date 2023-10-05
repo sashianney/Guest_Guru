@@ -1,0 +1,86 @@
+<div class="container-fluid py-4 bg-light rounded" id="box" style="background-image: url('../../../../assets/p1.jpg'); background-repeat: no-repeat; background-size: cover;">
+  <div class="container w-75 border pt-3 bg-light">
+    <div class="domain-search" id="body">
+      <div class="row">
+        <div class="col-md-3">
+          <h2 class="form-title">Find Your <strong>Comfortable Hotel</strong></h2>
+          <p class="dream">Search for your dream Hotel Now</p>
+        </div>
+        <div class="col-md-9">
+          <div class="input-group">
+            <input type="text" class="form-control" placeholder="Search your hotel" [(ngModel)]="searchKeyword">
+            <span class="input-group-addon">
+              <button class="btn btn-primary" (click)="searchHotel()">Search</button>
+            </span>
+          </div>
+          <p>Search your Hotel by Hotel Name and Location...</p>
+        </div>
+      </div>
+    </div>
+   
+    <hr>
+    <div *ngFor="let hotelinfo of displayedHotelDetails">
+      <div class="card mb-4 hotel-card">
+        <div class="row">
+          <div class="col-8">
+            <div class="card-body">
+              <h5 class="card-title">{{ hotelinfo.hotelname }}</h5>
+              <p class="card-text">
+                <i class="fa-solid fa-location-dot"></i> {{ hotelinfo.hotellocation }}<br>
+                <strong>Description:</strong> {{ hotelinfo.hoteldescription }}
+              </p>
+              <div class="row px-3">
+                <ul class="list-inline mx-3">
+                  <li class="list-inline-item mx-2">
+                    <i class="fas fa-wifi"></i>
+                  </li>
+                  <li class="list-inline-item mx-2">
+                    <i class="fas fa-shower"></i>
+                  </li>
+                  <li class="list-inline-item mx-2">
+                    <i class="fas fa-utensils"></i>
+                  </li>
+                  <li class="list-inline-item mx-2">
+                    <i class="fas fa-concierge-bell"></i>
+                  </li>
+                  <li class="list-inline-item mx-2">
+                    <i class="fas fa-chess-board"></i>
+                  </li>
+                  <li class="list-inline-item mx-2">
+                    <i class="fas fa-umbrella-beach"></i>
+                  </li>
+                </ul>
+              </div>
+              <div class="container">
+                <div class="row d-flex">
+                  <div class="col-4 mt-3 mx-2">
+                    <button class="btn btn-primary py-2 px-3" (click)="getrooms(hotelinfo.hotelid, hotelinfo.hotelname, hotelinfo.hotellocation)">Visit</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-4">
+            <img [src]="hotelinfo.hotelimageurl" class="card-img-top" alt="Hotel Image" style="height: 287px; width: 318px;">
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Pagination controls -->
+    <div class="form-group d-flex justify-content-center">
+      <nav aria-label="Page navigation">
+        <ul class="pagination justify-content-end">
+          <li class="page-item" *ngIf="currentPage > 1">
+            <a class="page-link" (click)="prevPage()"><span aria-hidden="true">&laquo;</span></a>
+          </li>
+          <li class="page-item" *ngFor="let page of getPages()" [class.active]="page === currentPage">
+            <a class="page-link" (click)="setPage(page)">{{ page }}</a>
+          </li>
+          <li class="page-item" *ngIf="currentPage < totalPages">
+            <a class="page-link" (click)="nextPage()"><span aria-hidden="true">&raquo;</span></a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+</div>

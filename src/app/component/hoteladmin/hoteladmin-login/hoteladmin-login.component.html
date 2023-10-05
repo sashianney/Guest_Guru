@@ -1,0 +1,38 @@
+<div class="container-fluid py-5" style="background-image: url('../../../../assets/p5.jpg'); background-repeat: no-repeat; background-size: cover;">
+    <div class="">
+        <div class="container px-4 bg-light w-50 border rounded py-5" id="box">
+            <h2 align="center">Hotel Admin Login</h2>
+            <form #hoteladminForm="ngForm" (ngSubmit)="onSubmit(hoteladminForm)"> <!--(ngSubmit)="onSubmit(adminForm)"-->
+            
+            <div class="mb-3">
+                <label for="hoteladminemail" class="form-label">Email</label>
+                <input type="email" id="hoteladminemail" class="form-control" name="hoteladminemail" [(ngModel)]="hoteladminemail" required email pattern="^[a-zA-Z0-9._-]+@[a-zA-Z0-9-]+\.[a-zA-Z.]{2,5}">
+                <!--For validation We use-->
+                <div *ngIf="hoteladminForm.controls['hoteladminemail'].errors?.['required'] " class="error-message-required">
+                    *please enter valid email
+                </div>
+                <div *ngIf="hoteladminForm.controls['hoteladminemail'].errors?.['pattern'] " class="error-message-pattern">
+                    *please enter a valid email address (e.g., example@example.com)
+                </div>
+            </div>
+
+            <div class="mb-3">
+                <label for="hoteladminpassword" class="form-label">Password</label>
+                <input type="password" id="hoteladminpassword" class="form-control" name="hoteladminpassword" 
+                  pattern="^(?=.*[a-zA-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{6,}$" minlength="3" [(ngModel)]="hoteladminpassword" required>
+                  <!--For validation We use-->
+                  <div *ngIf="hoteladminForm.controls['hoteladminpassword'].errors?.['required']" class="error-message-required">
+                    *please enter password
+                  </div>
+                  <div *ngIf="hoteladminForm.controls['hoteladminpassword'].errors?.['minlength']" class="error-message-minlength">
+                    *password must be at least 6 characters long
+                  </div>
+                  <div *ngIf="hoteladminForm.controls['hoteladminpassword'].errors?.['pattern']" class="error-message-pattern">
+                    *password must contain at least one special character, one letter, and one number
+                  </div>
+              </div>
+                    <button type="submit" class="btn btn-primary responsive-button w-25 align-items-center" >Login</button>
+            </form>
+          </div>
+      </div>
+    </div>

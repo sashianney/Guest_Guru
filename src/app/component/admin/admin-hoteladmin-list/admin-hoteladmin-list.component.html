@@ -1,0 +1,41 @@
+<div class="container-fluid py-5" style="background-image: url('../../../../assets/p1.jpg'); background-repeat: no-repeat; background-size: cover;">
+
+
+
+<div class="container p-4 bg-light w-100 border rounded" id="box" >
+  <h1 display="6">All Hotel Admins</h1>
+    <div class="row">
+      <div class="col-12">
+        <div class="card-columns">
+          <div class="card" *ngFor="let hotelAdminInfo of displayedHotelAdmin">
+            <div class="card-body">
+              <h5 class="card-title">{{ hotelAdminInfo.hoteladminname }}</h5>
+              <p class="card-text">Hotel Admin ID: {{ hotelAdminInfo.hoteladminid }}</p>
+              <p class="card-text">Email: {{ hotelAdminInfo.hoteladminemail }}</p>
+              <p class="card-text">Phone: {{ hotelAdminInfo.hoteladminphonenumber }}</p>
+            </div>
+            <div class="card-footer">
+              <button (click)="updateHotelAdminById(hotelAdminInfo.hoteladminid)" class="btn btn-warning">Update</button>
+             <!-- <button (click)="deleteHotelAdminById(hotelAdminInfo.hoteladminid)" class="btn btn-danger">Delete</button>-->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+    <!-- Pagination controls -->
+    <nav aria-label="Page navigation">
+      <ul class="pagination justify-content-end">
+        <li class="page-item" *ngIf="currentPage > 1">
+          <a class="page-link" (click)="prevPage()"><span aria-hidden="true">&laquo;</span></a>
+        </li>
+        <li class="page-item" *ngFor="let page of getPages()" [class.active]="page === currentPage">
+          <a class="page-link" (click)="setPage(page)">{{ page }}</a>
+        </li>
+        <li class="page-item" *ngIf="currentPage < totalPages">
+          <a class="page-link" (click)="nextPage()"><span aria-hidden="true">&raquo;</span></a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</div>

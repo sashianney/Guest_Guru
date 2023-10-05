@@ -1,0 +1,20 @@
+<div class="container my-5 p-4 bg-light w-50 border rounded">
+    <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th scope="col">Room Category ID</th>
+            <th scope="col">Room Category Name</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- Loop through user data and display it -->
+          <tr *ngFor="let room of roomcategory">
+            <td>{{ room.roomcategoryid }}</td>
+            <td>{{ room.roomcategoryname }}</td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="row">
+        <button class="btn btn-sm w-25 btn-primary" (click)="addRoomCategory()">Add</button>
+      </div>
+</div>

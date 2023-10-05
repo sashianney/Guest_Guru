@@ -1,0 +1,29 @@
+<div class="container my-5">
+    <div class="row">
+        <div class="col-md-6 offset-md-3">
+            <div class="card">
+                <div class="card-header">
+                    <h2>Add Services</h2>
+                </div>
+                <div class="card-body">
+                    <form #userForm="ngForm" (ngSubmit)="onSubmit(userForm)">
+                      <div class="form-group">
+                        <label for="roomservicename" class="form-label">New Service Name:</label>
+                        <input type="text" id="roomservicename" class="form-control" name="roomservicename" minlength="3" [(ngModel)]="roomservices.roomservicename" required>
+                        <!--For validation We use-->
+                        <div *ngIf="userForm.controls['roomservicename'].errors?.['minlength']&& userForm.controls['roomservicename'].touched" class="error-message-minlength">
+                            *please enter atleast 3 characters
+                        </div>
+                        <div *ngIf="userForm.controls['roomservicename'].errors?.['required'] && userForm.controls['roomservicename'].touched" class="error-message-required">
+                            *Service can not be null
+                        </div>
+                    </div>
+                        <button type="submit" class="btn btn-primary">Save</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    

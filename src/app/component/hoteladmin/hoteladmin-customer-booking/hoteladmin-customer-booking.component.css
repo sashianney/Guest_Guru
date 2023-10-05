@@ -1,0 +1,16 @@
+
+#body{
+    height:100vh;
+}
+
+th {
+    white-space: nowrap; /* Prevent text from wrapping */
+  }
+
+th:nth-child(1) {
+    width: 150px; /* Adjust the width as needed */
+  }
+
+th:nth-child(2) {
+    width: 150px; /* Adjust the width as needed */
+  }

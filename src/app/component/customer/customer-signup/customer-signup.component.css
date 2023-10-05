@@ -1,0 +1,48 @@
+
+/* Style for the arrow icon*/
+.arrow-icon {
+  
+    top: 50%;
+    right: 10px;
+    padding: 15px;
+    transform: translateY(-50%);
+    opacity: 0; /* Initially hidden */
+    transition: opacity 0.3s ease-in-out;
+}
+/* Show the arrow icon on hover*/
+.responsive-button:hover .arrow-icon {
+    opacity: 2;
+}
+.responsive-button:hover{
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
+}
+
+#box{
+    box-shadow: 5px 10px 18px #888888;
+}
+
+.error-message {
+    color: red;
+  }
+  .error-message-minlength {
+    color: red;
+  }
+  .error-message-maxlength {
+    color: red;
+  }
+  .error-message-pattern {
+    color: red;
+  }
+  .error-message-required {
+    color: red;
+  }
+  #message-otp{
+    color: green;
+  }
+
+
+
+.form-check{
+  display: inline-block;
+  padding-right: 8px; 
+}

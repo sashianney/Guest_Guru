@@ -1,0 +1,51 @@
+<!-- Booking Page -->
+<div class="container-fluid py-5" style="background-image: url('../../../../assets/p10.jpg'); background-repeat: no-repeat; background-size: cover;">
+
+    <div class="container w-75 bg-light border ">
+      <div class="pb-3 pt-4">
+        <h1 style="text-align: center;">Make Your Safe Booking</h1>
+      </div>
+      <hr>
+      <form class="py-4">
+        <div class="row">
+          <div class="col pl-5 ">
+            <h2>{{hotelname}}</h2>
+            <p> <i class="fa-solid fa-location-dot"></i>&nbsp;&nbsp;{{hotellocation}}</p>
+            <hr>
+            <h3>Room Description:</h3>
+            <p style="text-align: justify;">{{roomdescription}}</p>
+            <hr>
+            <div class="row">
+              <div class="col">
+                <h4><i class="fa fa-users pr-3"></i>{{numberofpeople}}</h4>
+              </div>
+              <div class="col">
+                <h4>{{price}}/- Per Day</h4>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <img [src]="roomimageurl" class="img-fluid" style="height: 320px; width: 455px;">
+          </div>
+        </div>
+        <hr>
+        <div class="row">
+          <div class="col" style="border-right: 1px solid #E0E0E0">
+            <label for="checkindate"><strong> Check-in Date:</strong></label>
+            <input type="date" class="form-control" id="checkindate" name="checkindate" [(ngModel)]="bookingInformation.checkindate" required>
+          </div>
+          <div class="col">
+            <label for="checkoutdate"><strong> Check-out Date:</strong></label>
+            <input type="date" class="form-control" id="checkoutdate" name="checkoutdate" [(ngModel)]="bookingInformation.checkoutdate" required>
+          </div>
+        </div>
+        <hr>
+        <div class="row">
+          <div class="col">
+            <button class="btn btn-success my-5" (click)="payNow()">Pay Now</button>
+          </div>
+        </div>
+      </form>
+    </div>
+
+</div> 

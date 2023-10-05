@@ -1,0 +1,19 @@
+.container-fluid{
+    height: auto;
+    width: auto;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.display-1{
+    font-style: oblique;
+}
+/* Define the button styles */
+   .responsive-button {
+    background-color: #3399ff;
+    color: #fff;
+    width: 180px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}

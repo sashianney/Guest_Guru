@@ -1,0 +1,22 @@
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-md-6 offset-md-3">
+            <div class="card">
+                <div class="card-header">
+                    <h2>Update Approval Status</h2>
+                </div>
+                <div class="card-body">
+                    <form (ngSubmit)="onSubmit(updateForm)" #updateForm="ngForm">
+                        <div class="mb-3">
+                            <label for="approvalStatus" class="form-label">Select Approval Status:</label>
+                            <select id="approvalStatus" name="approvalStatus" class="form-control" [(ngModel)]="hotelstatus" required>
+                                <option value="Approved">Approved</option> 
+                            </select>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Update Status</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

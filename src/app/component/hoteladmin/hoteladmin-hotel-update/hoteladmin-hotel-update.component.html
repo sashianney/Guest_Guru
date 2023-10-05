@@ -1,0 +1,56 @@
+<div class="container-fluid py-5" style="background-image: url('../../../../assets/p1.jpg'); background-repeat: no-repeat; background-size: cover;">
+    <div class="container  p-4 bg-light w-50 border rounded" id="box">
+        <h2 align="center">Hotel Details</h2>
+        <!--<form routerLink="/otp">-->
+          <form #hotelForm="ngForm" (ngSubmit)="onSubmit(hotelForm)">
+        
+            <div class="mb-3 mt-3">
+              <label for="hotelname">Hotel Name:</label>
+              <input type="text" id="hotelname" class="form-control" placeholder="Enter hotel name" name="hotelname" minlength="3" [(ngModel)]="hotelinformation.hotelname" required>
+              <!--For validation We use-->
+              <div *ngIf="hotelForm.controls['hotelname'].errors?.['minlength']&& hotelForm.controls['hotelname'].touched" class="error-message-minlength">
+                *please enter atleast 3 characters
+              </div>
+              <div *ngIf="hotelForm.controls['hotelname'].errors?.['required'] && hotelForm.controls['hotelname'].touched" class="error-message-required">
+                *Hotel name cannot be null
+              </div>
+          </div>
+  
+          <div class="mb-3 mt-3">
+            <label for="hotellocation">Hotel Location:</label>
+            <input type="text" id="hotellocation" class="form-control" placeholder="Enter hotel location" name="hotellocation" minlength="3" [(ngModel)]="hotelinformation.hotellocation" required>
+            <!--For validation We use-->
+            <div *ngIf="hotelForm.controls['hotellocation'].errors?.['minlength']&& hotelForm.controls['hotellocation'].touched" class="error-message-minlength">
+              *please enter atleast 3 characters
+            </div>
+            <div *ngIf="hotelForm.controls['hotellocation'].errors?.['required'] && hotelForm.controls['hotellocation'].touched" class="error-message-required">
+              *Hotel location cannot be null
+            </div>
+          </div>
+  
+          <div class="mb-3 mt-3">
+            <label for="hotelimageurl">Hotel Image url:</label>
+            <input type="text" id="hotelimageurl" class="form-control" placeholder="Image URL" name="hotelimageurl"  [(ngModel)]="hotelinformation.hotelimageurl" required>
+            <!--For validation We use-->
+            <div *ngIf="hotelForm.controls['hotelimageurl'].errors?.['required'] && hotelForm.controls['hotelimageurl'].touched" class="error-message-required">
+              *Hotel Image URL cannot be null
+            </div>
+          </div>
+  
+          <div class="mb-3 mt-3">
+            <label for="hoteldescription">Hotel Location:</label>
+            <textarea type="text" row="4" id="hoteldescription" class="form-control" placeholder="Enter hotel description" name="hoteldescription"  maxlength="250" [(ngModel)]="hotelinformation.hoteldescription" required style="resize: none;" required></textarea>
+            <!--For validation We use-->
+            <div *ngIf="hotelForm.controls['hoteldescription'].errors?.['maxLength'] && hotelForm.controls['hoteldescription'].touched" class="error-message-minlength">
+              *Hotel description cannot be more then 250 letters
+            </div>
+            <div *ngIf="hotelForm.controls['hoteldescription'].errors?.['required'] && hotelForm.controls['hoteldescription'].touched" class="error-message-required">
+              *Hotel description cannot be null
+            </div>
+          </div>
+
+          <button type="submit" class="btn btn-primary">Submit</button>
+       <!-- </form>-->
+      </form>
+      </div>
+  </div>

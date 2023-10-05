@@ -1,0 +1,158 @@
+<div class="container-fluid py-5" style="background-image: url('../../../../assets/p10.jpg'); background-repeat: no-repeat; background-size: cover;">
+  <div class="">
+    <div class="container  px-4 bg-light w-50 border rounded py-5" id="box">
+      <div style="text-align: center;">
+        <h1>Customer Registration</h1>
+        <p>Make your booking easy, fast, and secure.</p>
+      </div>
+      <form #customerForm="ngForm" (ngSubmit)="onSubmit(customerForm)">
+        <div class="mb-3">
+          <label for="customername" class="form-label">Name</label>
+          <input type="text" id="customername" class="form-control" name="customername" minlength="3" [(ngModel)]="customer.customername" required>
+          <!-- For validation, we use -->
+          <div *ngIf="customerForm.controls['customername'].errors?.['minlength'] && customerForm.controls['customername'].touched" class="error-message-minlength">
+            *please enter at least 3 characters
+          </div>
+          <div *ngIf="customerForm.controls['customername'].errors?.['required'] && customerForm.controls['customername'].touched" class="error-message-required">
+            *please enter full name
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label for="customeremail" class="form-label">Email</label>
+          <input type="email" id="customeremail" class="form-control" name="customeremail" [(ngModel)]="customer.customeremail" required email pattern="^[a-zA-Z0-9._-]+@[a-zA-Z0-9-]+\.[a-zA-Z.]{2,5}">
+          <!-- For validation, we use -->
+          <div *ngIf="customerForm.controls['customeremail'].errors?.['required'] && customerForm.controls['customeremail'].touched" class="error-message-required">
+            *please enter a valid email
+          </div>
+          <div *ngIf="customerForm.controls['customeremail'].errors?.['pattern'] && customerForm.controls['customeremail'].touched" class="error-message-pattern">
+            *please enter a valid email address (e.g., example@example.com)
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label for="customerphone" class="form-label">Phone Number</label>
+          <input type="text" id="customerphone" class="form-control" name="customerphone" maxlength="10" pattern="^[6-9]\d{9}$" [(ngModel)]="customer.customerphone" required>
+          <!-- For validation, we use -->
+          <div *ngIf="customerForm.controls['customerphone'].errors?.['maxLength'] && customerForm.controls['customerphone'].touched" class="error-message-minlength">
+            *contact number cannot be more than 10 digits
+          </div>
+          <div *ngIf="customerForm.controls['customerphone'].errors?.['required'] && customerForm.controls['customerphone'].touched" class="error-message-required">
+            *please enter a contact number
+          </div>
+          <div *ngIf="customerForm.controls['customerphone'].errors?.['pattern'] && customerForm.controls['customerphone'].touched" class="error-message-pattern">
+            *please enter a valid contact number starting with 6, 7, 8, or 9 and having exactly 10 digits
+          </div>
+        </div>
+
+        <div class="mb-3 mt-3" id="picker">
+          <label for="dob">Date of Birth:</label>
+          <input type="date" class="form-control" id="dob" name="dob" [(ngModel)]="customer.customerdob" required />
+        </div>
+
+        
+      <div class="mb-3 mt-3">
+        <label for="gender">Gender:</label><br>
+        <div class="form-check">
+          <input type="radio" class="form-check-input" id="radio1" name="customergender" value="male" [(ngModel)]="customer.customergender" required>
+          <label class="form-check-label" for="radio1">Male</label>
+        </div>
+      
+        <div class="form-check">
+          <input type="radio" class="form-check-input" id="radio2" name="customergender" value="female" [(ngModel)]="customer.customergender">
+          <label class="form-check-label" for="radio2">Female</label>
+        </div>
+      
+        <div class="form-check">
+          <input type="radio" class="form-check-input" id="radio3" name="customergender" value="prefer not to say" [(ngModel)]="customer.customergender">
+          <label class="form-check-label">Prefer not to say</label>
+        </div>
+      </div>
+      
+        <div class="mb-3">
+          <label for="customeraddress" class="form-label">Address</label>
+          <div class="input-group mb-3 w-75">
+            <span class="input-group-text">Street</span>
+            <input type="text" class="form-control" id="street" name="customeraddress.street" placeholder="Enter street" [(ngModel)]="customer.customeraddress.street">
+          </div>
+        
+          <div class="input-group mb-3 w-75">
+            <span class="input-group-text">City&nbsp;&nbsp;&nbsp;</span>
+            <input type="text" class="form-control" id="city" name="customeraddress.city" placeholder="Enter City" [(ngModel)]="customer.customeraddress.city">
+          </div>
+        
+          <div class="input-group mb-3 w-75">
+            <span class="input-group-text">State&nbsp;</span>
+            <input type="text" class="form-control" id="state" name="customeraddress.state" placeholder="Enter State" [(ngModel)]="customer.customeraddress.state">
+          </div>
+        </div>
+
+        <div class="form-group mb-3 mt-3">
+          <label for="nationality" class="pb-0.5">Nationality:</label>
+          <input list="nationality" class="form-control" id="nationality1" name="customernationality" placeholder="---Select Nationality---" [(ngModel)]="customer.customernationality">
+          <datalist id="nationality">
+            <option value="INDIA"></option>
+            <option value="AFGHAN"></option>
+            <option value="ALBANIAN"></option>
+            <option value="ALGERIAN"></option>
+            <option value="AMERICAN"></option>
+            <option value="ANDORRAN"></option>
+            <option value="ANGOLAN"></option>
+            <option value="ANTIGUANS"></option>
+            <option value="BANGLADESH"></option>
+            <option value="BELARUS"></option>
+            <option value="BELGIUM"></option>
+            <option value="BRAZIL"></option>
+            <option value="CHINA"></option>
+            <option value="CANADA"></option>
+            <option value="CUBA"></option>
+            <option value="FINLAND"></option>
+            <option value="FRANCE"></option>
+            <option value="ICELAND"></option>
+            <option value="ITALY"></option>
+            <option value="NEPAL"></option>
+          </datalist>
+        </div>
+
+        <div class="mb-3">
+          <label for="customerpassword">Password:</label>
+          <input type="password" class="form-control" id="customerpassword" placeholder="Enter password" name="customerpassword" [(ngModel)]="customer.customerpassword" required>
+          <!-- For validation, We use -->
+          <div *ngIf="customerForm.controls['customerpassword'].errors?.['required'] && customerForm.controls['customerpassword'].touched" class="error-message-required">
+            *please enter a password
+          </div>
+          <div *ngIf="customerForm.controls['customerpassword'].errors?.['minlength'] && customerForm.controls['customerpassword'].touched" class="error-message-minlength">
+            *password must be at least 6 characters long
+          </div>
+          <div *ngIf="customerForm.controls['customerpassword'].errors?.['pattern'] && customerForm.controls['customerpassword'].touched" class="error-message-pattern">
+            *password must contain at least one special character, one letter, and one number
+          </div>
+        </div>
+
+        <div class="form-check mb-3 was-validated">
+          <label class="form-check-label">
+            <input class="form-check-input" type="checkbox" name="remember" required/> I confirm, I have read and agree with Guest Guru<a routerLink="/T&C"> terms-and-conditions </a> and consent to sharing my information.
+            <div class="valid-feedback">Thank you for reading all GuestGuru terms-and-conditions.</div>
+            <div class="invalid-feedback">Please read all GuestGuru terms-and-conditions and check the checkbox.</div>
+          </label>
+        </div>
+
+        <button type="submit" class="btn btn-primary responsive-button">Next<span class="arrow-icon">&#10148;</span></button>
+      
+      </form>
+      <div *ngIf="errorvarify">
+      <form (ngSubmit)="onSubmitotp(customerForm)">
+        <div *ngIf="otpvarify">
+          <div class="mb-3" align="center">
+            <p id="message-otp">*Please check your email for OTP validation.</p>
+            <label for="customerotp" class="form-label">Enter OTP</label>
+            <input type="text" id="customerotp" class="form-control w-25" name="customerotp" maxlength="6" [(ngModel)]="otp" required>
+            <button type="submit" class="btn btn-primary mt-2">Register</button>
+          </div>
+        </div>
+      </form>
+    </div>
+    </div>
+    
+  </div>
+</div>

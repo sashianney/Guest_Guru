@@ -1,0 +1,77 @@
+<div class="container-fluid py-5" style="background-image: url('../../../../assets/p13.jpeg'); background-repeat: no-repeat; background-size: cover;">
+<div class="container">
+    <div class="row">
+      <div class="col-md-6 offset-md-3">
+        <div class="card" id="box">
+          <div class="card-header">
+            <ul class="navbar-nav ">
+              <li class="nav-item" > 
+                <a class="nav-link" routerLink="/customerdashboard"><i class="fa fa-arrow-left"></i>&nbsp;&nbsp;&nbsp; back to your dashboard.</a>
+              </li>
+            </ul>
+            <h2>Your Profile</h2>
+            
+          </div>
+          <div class="card-body">
+            <div *ngIf="customer">
+              <div class="mb-3">
+                <h2><strong>Welcome &nbsp;&nbsp;</strong>{{ customer.customername }}...</h2>
+              </div>
+              <div class="mb-3">
+                <strong>Name:</strong> {{ customer.customername }}
+              </div>
+              <hr>
+
+              <div class="mb-3">
+                <strong>Email:</strong> {{ customer.customeremail }}
+              </div>
+              <hr>
+
+              <div class="mb-3">
+                <strong>Phone Number:</strong> {{ customer.customerphone }}
+              </div>
+              <hr>
+
+              <div class="mb-3">
+                <strong>Date of Birth:</strong> {{ customer.customerdob }}
+              </div>
+              <hr>
+
+              <div class="mb-3">
+                <strong>Gender:</strong> {{ customer.customergender }}
+              </div>
+              <hr>
+
+              <div class="mb-3">
+                <strong>Address:</strong> {{ customer.customeraddress.street }}, {{ customer.customeraddress.city }}, {{ customer.customeraddress.state }}
+                
+               
+              </div>
+              <hr>
+
+              <div class="mb-3">
+                <strong>Nationality:</strong> {{ customer.customernationality }}
+              </div>
+              <hr>
+
+              <div class="mb-3">
+                <strong>Password:</strong> {{ customer.customerpassword }}
+              </div>
+              <hr>
+
+              <div class="mb-3">
+                <input type="button" class="btn btn-primary" value="Update your password"  routerLink="/customerupdate"/>
+              </div>
+
+              <!-- Add more fields as needed -->
+            </div>
+            <div *ngIf="!customer">
+              <p>Customer profile data not available go to logout and login once again...</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>

@@ -1,0 +1,12 @@
+.container-fluid{
+    height: auto;
+}
+.title{
+    text-align: center;
+    padding-top: 100px;
+    padding-bottom: 30px;
+}
+.title-heading{
+   
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}

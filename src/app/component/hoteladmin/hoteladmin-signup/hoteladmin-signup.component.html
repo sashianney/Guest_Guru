@@ -1,0 +1,106 @@
+<div class="container-fluid py-5" style="background-image: url('../../../../assets/p10.jpg'); background-repeat: no-repeat; background-size: cover;">
+  <div class="">
+    <div class="container px-4 bg-light w-50 border rounded py-5" id="box">
+      <h2 align="center">Hotel Admin Registration</h2>
+      <form #hoteladminForm="ngForm" (ngSubmit)="onSubmit(hoteladminForm)">
+        <div class="mb-3">
+          <label for="hoteladminname" class="form-label">Name</label>
+          <input type="text" id="hoteladminname" class="form-control" name="hoteladminname"
+            [(ngModel)]="hoteladmin.hoteladminname" minlength="3" required>
+          <div *ngIf="hoteladminForm.controls['hoteladminname'].errors?.['minlength'] && hoteladminForm.controls['hoteladminname'].touched"
+            class="error-message-minlength">
+            *please enter at least 3 characters
+          </div>
+          <div *ngIf="hoteladminForm.controls['hoteladminname'].errors?.['required'] && hoteladminForm.controls['hoteladminname'].touched"
+            class="error-message-required">
+            *please enter full name
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label for="hoteladminemail" class="form-label">Email</label>
+          <input type="email" id="hoteladminemail" class="form-control" name="hoteladminemail"
+            [(ngModel)]="hoteladmin.hoteladminemail" required email pattern="^[a-zA-Z0-9._-]+@[a-zA-Z0-9-]+\.[a-zA-Z.]{2,5}">
+          <div *ngIf="hoteladminForm.controls['hoteladminemail'].errors?.['required'] && hoteladminForm.controls['hoteladminemail'].touched"
+            class="error-message-required">
+            *please enter a valid email
+          </div>
+          <div *ngIf="hoteladminForm.controls['hoteladminemail'].errors?.['pattern'] && hoteladminForm.controls['hoteladminemail'].touched"
+            class="error-message-pattern">
+            *please enter a valid email address (e.g., example@example.com)
+          </div>
+        </div>
+        
+        <div class="mb-3">
+          <label for="hoteladminphonenumber" class="form-label">Phone Number</label>
+          <input type="text" id="hoteladminphonenumber" class="form-control" name="hoteladminphonenumber"
+            [(ngModel)]="hoteladmin.hoteladminphonenumber" maxlength="10" pattern="^[6-9]\d{9}$" required>
+          <div *ngIf="hoteladminForm.controls['hoteladminphonenumber'].errors?.['maxLength'] && hoteladminForm.controls['hoteladminphonenumber'].touched"
+            class="error-message-maxlength">
+            *contact number cannot be more than 10 digits
+          </div>
+          <div *ngIf="hoteladminForm.controls['hoteladminphonenumber'].errors?.['required'] && hoteladminForm.controls['hoteladminphonenumber'].touched"
+            class="error-message-required">
+            *please enter contact number
+          </div>
+          <div *ngIf="hoteladminForm.controls['hoteladminphonenumber'].errors?.['pattern'] && hoteladminForm.controls['hoteladminphonenumber'].touched"
+            class="error-message-pattern">
+            *please enter a valid contact number starting with 6, 7, 8, or 9 and having exactly 10 digits
+          </div>
+        </div>
+        
+        <div class="mb-3">
+          <label for="hoteladminpassword" class="form-label">Password</label>
+          <input type="password" id="hoteladminpassword" class="form-control" name="hoteladminpassword"
+            pattern="^(?=.*[a-zA-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{6,}$" minlength="3"
+            [(ngModel)]="hoteladmin.hoteladminpassword" required>
+          <div *ngIf="hoteladminForm.controls['hoteladminpassword'].errors?.['required'] && hoteladminForm.controls['hoteladminpassword'].touched"
+            class="error-message-required">
+            *please enter password
+          </div>
+          <div *ngIf="hoteladminForm.controls['hoteladminpassword'].errors?.['minlength'] && hoteladminForm.controls['hoteladminpassword'].touched"
+            class="error-message-minlength">
+            *password must be at least 6 characters long
+          </div>
+          <div *ngIf="hoteladminForm.controls['hoteladminpassword'].errors?.['pattern'] && hoteladminForm.controls['hoteladminpassword'].touched"
+            class="error-message-pattern">
+            *password must contain at least one special character, one letter, and one number
+          </div>
+        </div>
+
+        <div class="form-check mb-3 was-validated">
+          <label class="form-check-label">
+            <input class="form-check-input" type="checkbox" name="remember" required /> I confirm, I have read and agree
+            with Guest Guru<a routerLink="/T&C"> terms-and-conditions </a> and consent to sharing my information.
+            <div class="valid-feedback">Thank you for reading all GuestGuru terms-and-conditions.</div>
+            <div class="invalid-feedback">Please read all GuestGuru terms-and-conditions and check the checkbox .</div>
+          </label>
+        </div>
+
+        <button type="submit" class="btn btn-primary responsive-button">Next <span class="arrow-icon">&#10148;</span>
+        </button>
+      </form>
+
+      <div *ngIf="errorvatify">
+      <form *ngIf="otpvarify" (ngSubmit)="onSubmitotp(hoteladminForm)">
+        <div>
+          <div class="mb-3" align="center">
+            <p id="message-otp">*Please check your email for OTP validation.</p>
+            <label for="hoteladminotp" class="form-label">Enter OTP</label>
+            <input
+  type="text"
+  class="form-control"
+  id="otp"
+  name="otp"
+  [(ngModel)]="otp"
+  required
+/>
+            <button type="submit" class="btn btn-primary mt-2">Verify OTP</button>
+          </div>
+        </div>
+      </form>
+      </div>
+     
+    </div>
+  </div>
+</div>

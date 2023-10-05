@@ -1,0 +1,81 @@
+#body{
+    margin-bottom: 10px;
+}
+.domain-search .form-title {
+    margin-top: 0;
+    margin-bottom: 2px;
+    color: #286090;
+    font-family: "Poppins", sans-serif;
+    font-weight: 100;
+}
+
+.domain-search .dream {
+    color:  #286090;
+    margin: 0;
+}
+
+.domain-search .input-group {
+    -webkit-box-shadow: 0px 4px 18px 0px rgba(0, 0, 0, 0.1);
+    box-shadow: 0px 4px 18px 0px rgba(0, 0, 0, 0.1);
+}
+
+
+.domain-search .input-group-addon {
+    border: none;
+}
+
+.domain-search .form-title strong {
+    display: block;
+}
+
+.domain-search .form-control {
+    height: 60px;
+    border-radius: 0;
+    border: none;
+}
+
+.domain-search .form-control:focus {
+
+box-shadow: 0px 0px 0px 0px #ffffff !important;
+
+}
+
+.domain-search .input-group .input-group-addon [type="submit"], .input-group .input-group-addon button {
+    border: none;
+    border-radius: 5px;
+}
+
+.domain-search .btn {
+    padding: 0 54px;
+    line-height: 60px;
+}
+
+
+.domain-search .btn-primary {
+    padding: 0 30px;
+    padding-top: 3px;
+    padding-bottom: 2px;
+    line-height: 54px;
+    background: #4279d2;
+    color: #fff;
+   
+}
+
+.domain-search .btn-primary:hover {
+    color: #fff;
+    background-color: #286090;
+    border-color: #204d74;
+}
+
+.domain-search .input-group + p {
+    color: #69b2ea;
+    font-size: 15px;
+    font-family: "Poppins", sans-serif;
+    font-weight: 100;
+    margin-top: 15px;
+    margin-bottom: 0;
+}
+
+.domain-search .input-group + p strong {
+    margin-right: 40px;
+}

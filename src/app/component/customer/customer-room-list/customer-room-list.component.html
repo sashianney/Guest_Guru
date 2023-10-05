@@ -1,0 +1,53 @@
+
+<div class="container-fluid" id="box">
+   <div class="container border w-75 my-5  p-4  bg-light">
+    <div *ngFor="let room of roomInformation" class="m-3">
+        <div class="card">
+            <div class="row">
+             <div class="col-8 ">
+              <div class="mt-2">
+                <div class="row ml-2 ">
+                  <h3>{{hotelname}}</h3>
+                  <p> <i class="fa-solid fa-location-dot"></i>&nbsp;&nbsp;{{hotellocation}}</p>
+                </div>
+                <div class="row ml-2 ">
+                  <p>{{room.roomdescription}}</p>
+                </div>
+                <div class="row ml-2 ">
+                  <div class="col-3 " style="border-left: 1px solid gray;">
+                      <strong style="font-size: 12px;">Room Category:</strong> 
+                      <p class="pl-3" style="font-size: 10px;">{{room.roomcategory.roomcategoryname}} <br></p>
+                      <p style="margin-top: -20px;"> <strong  style="font-size: 12px; margin-top: -5px; padding-left: -8px;">Room Services:</strong></p>
+                      <div *ngFor="let service of room.roomservice">
+                        <ul>
+                          <li style="margin: -15px; font-size: 10px;">{{service.roomservicename}}</li>
+                        </ul>
+                      </div>
+                  </div>
+                  <div class="col " style="text-align: end;">
+                    <div class="row pt-3">
+                      <strong>  <p style="font-size: 13px;">{{room.numberofpeople}} <i class="fa fa-users pl-3"></i> </p></strong>
+                    </div>
+                    <div class="row">
+                    <strong>  <p style="font-size: 20px;">Rs. {{room.roompriceperday}} /- Per Day</p></strong>
+                    </div>
+                    <div class="row">
+                      <div >
+                        <button class="btn btn-primary" (click)="makebooking(hotelname,room.roompriceperday,room.numberofpeople,hotellocation,room.roomdescription,room.roomimageurl,room.roomid)" >Book Now</button>
+                      </div>
+                    </div>
+                  </div>
+                  
+                </div>
+            
+              </div>
+            </div>
+             <div class="col-4 ">
+              <img [src]="room.roomimageurl" class="img-fluid" style="height: 320px; width: 455px;">
+             </div>
+            </div>
+          </div>
+        </div>
+    </div>
+  </div> 
+  

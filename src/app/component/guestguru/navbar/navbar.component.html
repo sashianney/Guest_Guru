@@ -1,0 +1,199 @@
+<!-- Navbar -->
+
+<nav class="container-fluid navbar navbar-expand-lg bg-light pt-5">
+    <!-- Container wrapper -->
+    <div class="container">
+      <!-- Navbar brand -->
+    
+      <div class="navbar-brand" id="logo">
+        <a routerLink="/dashborad">
+          <img src="../../../../assets/GuestGuru.png" alt="" width="50px" height="50x"  style="margin-top:-7px;">
+        </a>
+      </div>
+      <div class="navbar-brand">
+        <h2  routerLink="/dashborad">Guest Guru</h2>
+      </div>
+      <!-- Toggle button -->
+  
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <i class="fas fa-bars"></i>
+       </button>
+
+
+
+      <!-- Collapsible wrapper -->
+      <div class="collapse navbar-collapse" id="navbarButtonsExample">
+        <!-- Left links -->
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0 ml-4">
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/dashborad">Dashboard</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/about">About</a>
+          </li>
+          
+          <li class="nav-item">
+            <a class="nav-link"  *ngIf="!adminHardCodedAuthenticationService.isAdminLoggedIn()" routerLink="/contact">Contact</a>
+          </li>
+          
+          
+          <li class="nav-item" >
+            <a class="nav-link"  *ngIf="!adminHardCodedAuthenticationService.isAdminLoggedIn()" routerLink="/listyourproperty">List-Your-Property</a>
+          </li>
+
+        </ul>
+        <!-- Left links -->
+  
+          <div class="d-flex align-items-center">
+            <div class="dropdown">
+              <button *ngIf="!(customerHardCodedAuthenticationService.isCustomerLoggedIn() || adminHardCodedAuthenticationService.isAdminLoggedIn() || hoteladminHardCodedAuthenticationService.isHoteladminLoggedIn())" 
+                      class="dropbtn">Login</button>
+              <div class="dropdown-content">
+                <a [routerLink]="['/adminlogin']">Admin</a>
+                <a [routerLink]="['/customerlogin']">Customer</a>
+                <a [routerLink]="['/hoteladminlogin']">Hotel Admin</a>
+              </div>
+            </div>
+
+            <div class="dropdown">
+              <button *ngIf="!(customerHardCodedAuthenticationService.isCustomerLoggedIn() || adminHardCodedAuthenticationService.isAdminLoggedIn() || hoteladminHardCodedAuthenticationService.isHoteladminLoggedIn())" 
+               class="dropbtn">Signup</button>
+              <div class="dropdown-content">
+               <!-- <a  [routerLink]="['/adminsignup']">Admin</a> -->
+                <!-- <a  [routerLink]="['/adminsignup']">Admin</a>  -->
+                <a [routerLink]="['/customersignup']">Customer</a>
+                <a [routerLink]="['/hoteladminsignup']">Hotel Admin</a>
+              </div>
+            </div>
+          </div>
+      </div>
+      <!-- Collapsible wrapper -->
+    </div>
+    <!-- Container wrapper -->
+  </nav>
+  <!-- Navbar -->
+
+  <div class="container-fluid  bg-light ">
+    <button class="btn btn-primary mx-5" id="nav-btn" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample">
+      <i class="fa fa-bars"></i>
+    </button>
+
+    <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
+      <div class="offcanvas-header border">
+        <h1 class="offcanvas-title" id="offcanvasExampleLabel">Guest Guru</h1>
+        
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+      </div>
+
+      <div class="offcanvas-body px-5">
+
+
+
+
+
+        <ul class="navbar-nav ">
+          
+          <!--Customer Related-->
+
+          <li class="nav-item" > 
+            <a class="nav-link" *ngIf="customerHardCodedAuthenticationService.isCustomerLoggedIn()" routerLink="/customerdashboard"><i class="fa fa-home"></i>&nbsp;&nbsp;&nbsp; Your Dashboard</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" *ngIf="customerHardCodedAuthenticationService.isCustomerLoggedIn()" routerLink="/customerlist"><i class="fa-solid fa-user"></i>&nbsp;&nbsp;&nbsp;&nbsp; Profile</a>
+          </li>
+      <!--    <li class="nav-item">
+            <a class="nav-link" *ngIf="customerHardCodedAuthenticationService.isCustomerLoggedIn()" routerLink="/customercardlist"><i class="fa-solid fa-credit-card"></i>&nbsp;&nbsp;&nbsp; Card Details</a>
+          </li>-->
+          <li class="nav-item">
+            <a class="nav-link" *ngIf="customerHardCodedAuthenticationService.isCustomerLoggedIn()" routerLink="/customerbooking"><i class="fa-solid fa-cart-shopping"></i>&nbsp;&nbsp;&nbsp; Your Booking</a>
+          </li>
+      <!--    <li class="nav-item">
+            <a class="nav-link" *ngIf="customerHardCodedAuthenticationService.isCustomerLoggedIn()" routerLink="/customertransaction"><i class="fa-solid fa-money-bill-transfer"></i>&nbsp;&nbsp;&nbsp; Your Transaction</a>
+          </li>-->
+          <li class="nav-item">
+            <a class="nav-link" *ngIf="customerHardCodedAuthenticationService.isCustomerLoggedIn()" routerLink="/customerlogout" (click)="customerlogout()"><i class="fa-solid fa-right-from-bracket"></i>&nbsp;&nbsp;&nbsp;&nbsp; logout</a>
+          </li>
+          
+          <!--Admin Related-->
+
+          <li class="nav-item" > 
+            <a class="nav-link" *ngIf="adminHardCodedAuthenticationService.isAdminLoggedIn()" routerLink="/admindashboard"><i class="fa fa-home"></i>&nbsp;&nbsp;&nbsp; Your Dashboard</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" *ngIf="adminHardCodedAuthenticationService.isAdminLoggedIn()" routerLink="/adminlist"><i class="fa-solid fa-user"></i>&nbsp;&nbsp;&nbsp;&nbsp; Profile</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" *ngIf="adminHardCodedAuthenticationService.isAdminLoggedIn()" routerLink="/category"><i class="fas fa-cog"></i>&nbsp;&nbsp;&nbsp;&nbsp; Manage Categories</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" *ngIf="adminHardCodedAuthenticationService.isAdminLoggedIn()" routerLink="/service"><i class="fas fa-cog"></i>&nbsp;&nbsp;&nbsp;&nbsp; Manage Services</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" *ngIf="adminHardCodedAuthenticationService.isAdminLoggedIn()" routerLink="/admincstomerlist"><i class="fa-regular fa-user"></i>&nbsp;&nbsp;&nbsp;&nbsp; View All Customers</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" *ngIf="adminHardCodedAuthenticationService.isAdminLoggedIn()" routerLink="/adminhoteladminlist"><i class="fa-regular fa-user"></i>&nbsp;&nbsp;&nbsp;&nbsp; View All Hotel Admins</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" *ngIf="adminHardCodedAuthenticationService.isAdminLoggedIn()" routerLink="/adminhoteldetailslist"><i class="fa-solid fa-hotel"></i>&nbsp;&nbsp;&nbsp;&nbsp; View All Hotels</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" *ngIf="adminHardCodedAuthenticationService.isAdminLoggedIn()" routerLink="/adminlogout" (click)="adminlogout()"><i class="fa-solid fa-right-from-bracket"></i>&nbsp;&nbsp;&nbsp;&nbsp; logout</a>
+          </li>
+
+
+          <!--Hotel Admin Related-->
+
+          <li class="nav-item" > 
+            <a class="nav-link" *ngIf="hoteladminHardCodedAuthenticationService.isHoteladminLoggedIn()" routerLink="/hoteladmindashboard"><i class="fa fa-home"></i>&nbsp;&nbsp;&nbsp; Your Dashboard</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" *ngIf="hoteladminHardCodedAuthenticationService.isHoteladminLoggedIn()" routerLink="/hoteladminlist"><i class="fa-solid fa-user"></i>&nbsp;&nbsp;&nbsp; Profile</a>
+          </li>
+          <!--
+          <li class="nav-item">
+            <a class="nav-link" *ngIf="hoteladminHardCodedAuthenticationService.isHoteladminLoggedIn()" routerLink="/hoteladminbankaccountlist"><i class="fa fa-bank"></i>&nbsp;&nbsp;&nbsp; Bank Details</a>
+          </li>
+          -->
+
+          <li class="nav-item">
+            <a class="nav-link" *ngIf="hoteladminHardCodedAuthenticationService.isHoteladminLoggedIn()" routerLink="/hoteladminhotellist"><i class="fa-solid fa-hotel"></i>&nbsp;&nbsp;&nbsp; Your Hotel & Rooms</a>
+          </li>
+          <!--
+          <li class="nav-item">
+            <a class="nav-link" *ngIf="hoteladminHardCodedAuthenticationService.isHoteladminLoggedIn()" routerLink="/hoteladminroomlist"><i class="fas fa-bed"></i>&nbsp;&nbsp;&nbsp; Your Rooms</a>
+          </li>
+          -->
+          <li class="nav-item">
+            <a class="nav-link" *ngIf="hoteladminHardCodedAuthenticationService.isHoteladminLoggedIn()" routerLink="/hoteladmincustomerbooking"><i class="fa-solid fa-cart-shopping"></i>&nbsp;&nbsp;&nbsp; Your Customer Bookings</a>
+          </li>
+          <!--
+          <li class="nav-item">
+            <a class="nav-link" *ngIf="hoteladminHardCodedAuthenticationService.isHoteladminLoggedIn()" routerLink="/hoteladmincustomertransaction"><i class="fa-solid fa-money-bill-transfer"></i>&nbsp;&nbsp;&nbsp; Your All Transaction</a>
+          </li>
+          -->
+          
+          <li class="nav-item">
+            <a class="nav-link" *ngIf="hoteladminHardCodedAuthenticationService.isHoteladminLoggedIn()" routerLink="/hoteladminlogout" (click)="hoteladminlogout()"><i class="fa-solid fa-right-from-bracket"></i>&nbsp;&nbsp;&nbsp;&nbsp; logout</a>
+          </li>
+
+
+
+          <!--Site Related-->
+          <li class="nav-item" >
+            <a class="nav-link"  *ngIf="!adminHardCodedAuthenticationService.isAdminLoggedIn()" routerLink="/listyourproperty"><i class="fa fa-link" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp; List-Your-Property</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/about"><i class="fa fa-info-circle" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp; About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link"  *ngIf="!adminHardCodedAuthenticationService.isAdminLoggedIn()" routerLink="/contact"><i class="fa fa-address-book" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp; Contact</a>
+          </li>  
+          
+
+
+        </ul>
+        <hr>
+      </div>
+    </div>
+</div>

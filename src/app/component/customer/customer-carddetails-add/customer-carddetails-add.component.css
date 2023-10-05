@@ -1,0 +1,30 @@
+
+#box{
+    box-shadow: 5px 10px 18px #888888;
+}
+
+.error-message {
+    color: red;
+  }
+  .error-message-minlength {
+    color: red;
+  }
+  .error-message-maxlength {
+    color: red;
+  }
+  .error-message-pattern {
+    color: red;
+  }
+  .error-message-required {
+    color: red;
+  }
+  #message-otp{
+    color: green;
+  }
+
+
+
+.form-check{
+  display: inline-block;
+  padding-right: 8px; 
+}

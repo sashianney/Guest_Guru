@@ -1,0 +1,81 @@
+<div class="container-fluid py-5" style="background-image: url('../../../../assets/p1.jpg'); background-repeat: no-repeat; background-size: cover;">
+<div class="container w-100" id="body">
+
+    <div class="row">
+      <!-- Add Hotel Button -->
+      <div class="col-2" *ngIf="addButton">
+        <button class="btn btn-primary mb-3" value="Add Hotel" routerLink="/hoteladminhoteladd">Add Hotel</button>
+      </div>
+  </div>
+  
+    <!-- Hotel List -->
+    <div *ngIf="hotelinformation">
+      <div class="card" > <!--*ngFor="let hoteldata"-->
+        <div class="row">
+         
+          <div class="col-8">
+            <div class="row mx-3">
+              <div class="row mt-2">
+                <p>
+                  <strong>Your hotel id:</strong> {{ hotelinformation.hotelid }} &nbsp;&nbsp;|&nbsp;&nbsp; <strong>Status:</strong> {{ hotelinformation.hotelstatus }} &nbsp;&nbsp;|&nbsp;&nbsp; <i class="fa-solid fa-location-dot"></i>&nbsp;&nbsp; {{ hotelinformation.hotellocation }}
+                </p>
+              </div>
+              <div class="row px-2 mb-2">
+                <h1>{{ hotelinformation.hotelname }}</h1>
+              </div>
+            </div>
+            <div class="row mx-3">
+              <p>{{ hotelinformation.hoteldescription }}</p>
+            </div>
+            <div class="row px-3">
+                <ul class="list-inline mx-3">
+                  <li class="list-inline-item mx-2">
+                    <i class="fas fa-wifi"></i>
+                  </li>
+                  <li class="list-inline-item mx-2">
+                    <i class="fas fa-shower"></i>
+                  </li>
+                  <li class="list-inline-item mx-2">
+                    <i class="fas fa-utensils"></i>
+                  </li>
+                  <li class="list-inline-item mx-2">
+                    <i class="fas fa-concierge-bell"></i>
+                  </li>
+                  <li class="list-inline-item mx-2">
+                    <i class="fas fa-chess-board"></i>
+                  </li>
+                  <li class="list-inline-item mx-2">
+                    <i class="fas fa-umbrella-beach"></i>
+                  </li>
+                </ul>
+            </div>
+            <div class="container">
+              <div class="row d-flex">
+                <div class="col-4 mt-3 mx-2">
+                  <button class="btn btn-primary mb-3 py-2 px-3" routerLink="/hoteladminroomlist">Add your Rooms</button>
+                </div>
+              </div>
+            </div>
+          </div>
+         
+          <div class="col-4">
+            <img [src]="hotelinformation.hotelimageurl" class="img-fluid" style="height: 315px; width: 450px;">
+          </div>
+        </div>
+      </div>
+      <div class="row mt-3">
+          <div class="col-3">
+            <button class="btn btn-primary mb-3" id="radius" value="Update Hotel" (click)="updateHotelInformationById(hotelinformation.hotelid)"> <i class="fas fa-edit"></i></button>
+            <p>Edit Your Hotel Information...</p>
+          </div>
+          <!--
+          <div class="col-1">
+            <button class="btn btn-danger mb-3" id="radius" value="Delete Hotel" (click)="deleteHotelInformationById(hotelinformation.hotelid)"><i class="fa-solid fa-trash"></i></button>
+          </div>
+         -->
+        </div>
+    </div>
+
+    <!-- Error Message if Hotel Data is Not Available -->
+  </div>
+</div>

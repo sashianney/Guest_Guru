@@ -1,0 +1,49 @@
+<div class="container-fluid py-5" style="background-image: url('../../../../assets/p13.jpeg'); background-repeat: no-repeat; background-size: cover;">
+<div class="container">
+    <div class="row">
+      <div class="col-md-6 offset-md-3">
+        <div class="card" id="box">
+          <div class="card-header">
+            <ul class="navbar-nav ">
+              <li class="nav-item" > 
+                <a class="nav-link" routerLink="/admindashboard"><i class="fa fa-arrow-left"></i>&nbsp;&nbsp;&nbsp; back to your dashboard.</a>
+              </li>
+            </ul>
+            <h2>Your Profile</h2>
+            
+          </div>
+          <div class="card-body">
+            <div *ngIf="admin">
+              <div class="mb-3">
+                <h2><strong>Welcome &nbsp;&nbsp;</strong> {{ admin.adminname }}...</h2>
+              </div>
+                <div class="mb-3">
+                  <strong>Name:</strong> {{ admin.adminname }}
+                </div>
+                <hr>
+
+              <div class="mb-3">
+                <strong>Email:</strong> {{ admin.adminemail }}
+              </div>
+              <hr>
+
+              <div class="mb-3">
+                <strong>Password:</strong> {{ admin.adminpassword }}
+              </div>
+              <hr>
+              
+              <div class="mb-3">
+                <input type="button" class="btn btn-primary" value="Update your password" routerLink="/adminupdate" />
+              </div>
+
+              <!-- Add more fields as needed -->
+            </div>
+            <div *ngIf="!admin">
+              <p>Admin profile data not available.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>  
